@@ -24,6 +24,10 @@
             die(formatErrors(sqlsrv_errors()));
         }
 
-        return sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
+        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+            $rows[] = $row;
+        }
+
+        return $rows;
     }
  ?>
