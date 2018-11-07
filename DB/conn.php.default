@@ -1,1 +1,29 @@
+<?php
+    // Before running any pages duplicate this file and rename it to "conn.php"
+    //  The fill out the needed data to connect to the database.
+    $serverName = "ServerName";
+    $connectionOptions = array(
+        "database" => "DatabaseName",
+        "uid" => "UserName",
+        "pwd" => "Password"
+    );
 
+    // Establishes the connection
+    $conn = sqlsrv_connect($serverName, $connectionOptions);
+    if ($conn === false) {
+        die(formatErrors(sqlsrv_errors()));
+    }
+
+    function select ($sql)
+    {
+        global $conn;
+
+        $stmt = sqlsrv_query($conn, $sql);
+
+        if ($stmt == false) {
+            die(formatErrors(sqlsrv_errors()));
+        }
+
+        return sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
+    }
+ ?>
