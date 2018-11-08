@@ -35,13 +35,22 @@
     {
         global $conn;
 
-        $stmt = sqlsrv_query($conn, "SELECT PasswordHash FROM PortalUsers WHERE UserName = ?", array($username));
+        $stmt = sqlsrv_query($conn, "SELECT PasswordHash FROM PortalUsers WHERE UserName=?", array($username));
 
         if ($stmt == false) {
+            die(print_r( sqlsrv_errors(), true));
+        }
+
+        //Fetch the first row of the query result
+        $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+        //Check to see if the row is null. If it is that means the username
+        //  was incorrect
+        if ($row == null) {
             return false;
         }
 
-        $hashedPassword = sqlsrv_get_field($stmt, 0);
+        //Retrieve the password hash from the row
+        $hashedPassword = $row["PasswordHash"];
 
         return password_verify($password, $hashedPassword);
     }
