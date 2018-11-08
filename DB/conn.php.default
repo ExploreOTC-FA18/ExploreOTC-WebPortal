@@ -31,6 +31,37 @@
         return $rows;
     }
     
+    //This function will check to see if there are any filters needing to be added
+    //    to the sql query based on the GET data
+    function filter_search($sql)
+    {
+        //First let's figure out if GET contains any of these filterable fields
+        $params = [];
+        if (count($_GET) !== 0) {
+            foreach($_GET as $key => $value) {
+                //Make sure the current value isn't empty
+                if ($value !== '') {
+                    //Check to see if the sql query has a WHERE statment
+                    //    already. If not add it and if so add AND instead
+                    if (strpos($sql, 'WHERE') === false) {
+                        $sql .= ' WHERE';
+                    } else {
+                        $sql .= ' AND';
+                    }
+                    //Add a condition to the sql string
+                    $sql .= ' '.$key.' = ?';
+                    //Add the value to the params array to be later added to
+                    //    the sql query. But before adding it to the array check
+                    //    to see if the value is on. If it is that means it's
+                    //    for a checkbox and it needs to be changed to true.
+                    //    But if it isn't on then just store the current value.
+                    $params[] = $value == "on" ? true : $value;
+                }
+            }
+        }
+        return select($sql, $params);
+    }
+    
     function validate_password($username, $password)
     {
         global $conn;
