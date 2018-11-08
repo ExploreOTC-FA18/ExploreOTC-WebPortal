@@ -30,4 +30,19 @@
 
         return $rows;
     }
+    
+    function validate_password($username, $password)
+    {
+        global $conn;
+
+        $stmt = sqlsrv_query($conn, "SELECT PasswordHash FROM PortalUsers WHERE UserName = ?", array($username));
+
+        if ($stmt == false) {
+            return false;
+        }
+
+        $hashedPassword = sqlsrv_get_field($stmt, 0);
+
+        return password_verify($password, $hashedPassword);
+    }
  ?>
