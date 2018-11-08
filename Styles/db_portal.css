@@ -4,7 +4,7 @@ body {
 
 .login {
     padding: 20px 0;
-    width: 50vw;
+    width: 30vw;
     border: 1px solid gray;
     border-radius: 10px;
     background-color: #f6f6f6;
@@ -15,4 +15,10 @@ body {
 .center {
     width: 50%;
     margin: 0 auto;
+}
+
+@media(max-width: 1300px) {
+    .login {
+        width: 50vw;
+    }
 }
