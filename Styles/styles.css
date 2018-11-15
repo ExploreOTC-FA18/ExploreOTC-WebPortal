@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+/* --- MAIN NAV BAR --- */
+
+.main-nav {
+    background-color: rgb(51, 68, 91);
+    font-weight: 200;
+    font-size: 140%;
+    padding: 3px 0;
+    margin: 0;
+}
+
+.main-nav .container {
+    max-width: 1400px;
+}
+
+.main-nav a {
+    color: rgb(217, 217, 217);
+}
+
+.main-nav i {
+    color: rgb(217, 217, 217);
+}
+
+/* --- SIDE NAV BAR --- */
+
+.side-nav {
+    width: 15%;
+    height: 100%;
+    background-color: rgb(51, 68, 91);
+    color: rgb(217, 217, 217);
+    float: left;
+}
+
+.nav-link {
+    padding-left: 40px;
+}
+
+.title-button {
+    font-weight: 200;
+    font-size: 120%;
+    padding: 10px 0;
+    background-color: rgb(41, 54, 70);
+    text-align: center;
+}
+
+.nav-link:link,
+.nav-link:visited {
+    color: rgb(217, 217, 217);
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: rgb(170, 170, 170);
+}
+
+.nav-link.active {
+    background: rgb(73, 96, 128);
+}
+
+.nav-item {
+    font-size: 120%;
+    font-weight: 300;
+}
+
+/* --- MAIN CONTENT AREA --- */
+
+.main-content {
+    float: left;
+    width: 85%;
+    padding: 40px;
+}
+
+.content-title-bar,
+.content-path,
+.content-title,
+.content-subtitle {
+    display: inline-block;
+}
+
+.content-title {
+    font-weight: 400;
+    font-size: 140%;
+    padding-right: 10px;
+}
+
+.content-subtitle {
+    font-weight: 200;
+    font-size: 80%;
+    color: #7e7e7e;
+}
+
+.content-path {
+    float: right;
+}
+
+.path,
+.content-path i {
+    float: left;
+    padding-top: 10px;
+    font-weight: 200;
+    font-size: 80%;
+    color: #7e7e7e;
+}
+
+.card-deck {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.card-title,
+.card-body,
+.card-footer,
+.card-footer a {
+    color: #ffffff;
+}
+
+.card-body {
+    padding: 0 0 0 15px;
+}
+
+.card-title {
+    font-size: 250%;
+    font-weight: 400;
+}
+
+.card-text {
+    font-size: 90%;
+    font-weight: 200;
+}
+
+.card-body-body,
+.card-body-icon {
+    display: inline-block;
+}
+
+.card-body-body {
+    float: left;
+}
+
+.card-body-icon {
+    float: right;
+}
+
+.card-body-icon i {
+    font-size: 800%;
+    padding-right: 40px;
+    line-height: 0;
+}
+
+.card-footer {
+    padding: 0;
+    height: 40px;
+    text-align: center;
+}
+
+.card-footer p {
+    margin: 0;
+    padding-top: 5px;
+}
+
+.card-footer i,
+.card-footer p {
+    display: inline-block;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.hidden {
+    border: none;
+}
+
+/* BLUE CARD SETTINGS */
+.card-blue {
+    background-color: #008bc7;
+}
+.card-blue .card-body-icon i {
+    color: #0070a1;
+}
+.card-blue .card-footer {
+    background-color: #0070a1;
+}
+
+/* RED CARD SETTINGS */
+.card-red {
+    background-color: #e74420;
+}
+.card-red .card-body-icon i {
+    color: #c33a1b;
+}
+.card-red .card-footer {
+    background-color: #c33a1b;
+}
+
+/* ORANGE CARD SETTINGS */
+.card-orange {
+    background-color: #FFBB33;
+}
+.card-orange .card-body-icon i {
+    color: #10b102;
+}
+.card-orange .card-footer {
+    background-color: #CC8800;
+}
+
+/* YELLOW CARD SETTINGS */
+.card-yellow {
+    background-color: #d2b100;
+}
+.card-yellow .card-body-icon i {
+    color: #b19500;
+}
+.card-yellow .card-footer {
+    background-color: #b19500;
+}
