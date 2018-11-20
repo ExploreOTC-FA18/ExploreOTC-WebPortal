@@ -7,7 +7,7 @@
 
     if (validate_password(strtolower($_POST["username"]), $_POST["password"])) {
         $_SESSION["username"] = $_POST["username"];
-        header("Location: ../validation_test.php");
+        header("Location: ../dashboard.php");
     } else {
         header("Location: ../index.php?login=false");
     }
