@@ -24,13 +24,13 @@
                 <div class="menu-functions">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link" href="dashboard.php">
                                 <i class="ion-speedometer">&nbsp;&nbsp</i>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="registration.php">
+                            <a class="nav-link active" href="#">
                                 <i class="ion-clipboard">&nbsp;&nbsp</i>
                                 Registration
                             </a>
@@ -62,68 +62,87 @@
             </nav>
             <section class="main-content">
                 <div class="content-title-bar">
-                    <h4 class="content-title">Dashboard</h4>
+                    <h4 class="content-title">Registration</h4>
                 </div>
                 <div class="content-path">
                     <i class="ion-speedometer">&nbsp;&nbsp</i>
-                    <p class="path">Home > Dashboard</p>
+                    <p class="path">Home > Registration</p>
                 </div>
-                <div class="card-deck mt-4">
-                    <div class="card card-blue">
-                        <div class="card-body">
-                            <div class="card-body-body">
-                                <br><h4 class="card-title">xx</h4>
-                                <p class="card-text">Number of Students Registered</p>
-                            </div>
-                            <div class="card-body-icon">
-                                <i class="ion-filing"></i>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="card-footer">
-                                <p></p>
-                                <i class="ion-arrow-right-b"></i>
-                            </div>
-                        </a>
+					<form action="">
+						<div class="form-group"
+							<div class="dropdown">
+								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">School Name  
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li>All</li>
+									<li>Ash Grove High School</li>
+									<li>Bolivar High School</li>
+									<li>Central High School</li>
+									<li>Clever High School</li>
+									<li>Dayspring Christian School</li>
+									<li>Everton High School</li>
+									<li>Fair Grove High School</li>
+									<li>Fordland High School</li>
+									<li>Glendale High School</li>
+									<li>Gloria Deo Academy</li>
+									<li>Hillcrest High School</li>
+									<li>Kickapoo High School</li>
+									<li>Logan-Rogersville High School</li>
+									<li>Marion C. Early High School</li>
+									<li>Marshfield High School</li>
+									<li>Nixa High School</li>
+									<li>Parkview High School</li>
+									<li>Pleasant Hope High School</li>
+									<li>Reeds Spring High School</li>
+									<li>Republic High School</li>
+									<li>Seymour High School</li>
+									<li>Sparta High School</li>
+									<li>Strafford High School</li>
+									<li>Study Alternative Center</li>
+									<li>Walnut Grove High School</li>
+									<li>Willard High School</li>
+								</ul>
+							</div>
+						<div class="form-group">
+							<label for="firstName">First Name:</label>
+							<input type="firstName" class="form-control" id="firstName">
+						</div>
+						<div class="form-group">
+							<label for="lastName">Last Name:</label>
+							<input type="lastName" class="form-control" id="lastName">
+						</div>
+						<div class="form-group">
+							<label for="email">Email address:</label>
+							<input type="email" class="form-control" id="email">
+						</div>
+						<div class="form-group">
+							<label for="phoneNumber">Phone Number:</label>
+							<input type="phoneNumber" class="form-control" id="phoneNumber">
+						</div>
+						<div class="form-group">
+							<div class="dropdown">
+								<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Initial OTC Rating  
+								<span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li>1</li>
+									<li>2</li>
+									<li>3</li>
+									<li>4</li>
+									<li>5</li>
+								</ul>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-default">Filter</button>
+					</form>
+				</div>
+                <a href="#">
+                    <div class="card-footer">
+						<p></p>
+                        <i class="ion-arrow-right-b"></i>
                     </div>
-                    <div class="card card-orange">
-                        <div class="card-body">
-                            <div class="card-body-body">
-                                <br><h4 class="card-title">xx</h4>
-                                <p class="card-text">Number of QR Scans</p>
-                            </div>
-                            <div class="card-body-icon">
-                                <i class="ion-email"></i>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="card-footer">
-                                <p></p>
-                                <i class="ion-arrow-right-b"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card card-red">
-                        <div class="card-body">
-                            <div class="card-body-body">
-								<br><h4 class="card-title">xx</h4>
-                                <p class="card-text">Number of Surveys Completed</p>
-                            </div>
-                            <div class="card-body-icon">
-                                <i class="ion-ios-calendar"></i>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="card-footer">
-                                <p></p>
-                                <i class="ion-arrow-right-b"></i>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                </a>
             </section>
         </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
