@@ -45,11 +45,15 @@
         return (isset($_GET[$key]) && !empty($_GET[$key]));
     }
 
-    function create_drop_down($options, $getKey)
+    function create_drop_down($options, $getKey, $useKey=False)
     {
-        foreach($options as $option) {
-            echo "<option "
-            .(isset($_GET[$getKey]) && !empty($_GET[$getKey]) && $_GET[$getKey] == (string)$option ? 'selected' : '')
+        foreach($options as $key => $option) {
+            $getKeyCheck = (string)$option;
+            if ($useKey)
+                $getKeyCheck = $key;
+                
+            echo "<option ".($useKey ? 'value="'.$key.'" ' : '')
+            .(isset($_GET[$getKey]) && !empty($_GET[$getKey]) && $_GET[$getKey] == $getKeyCheck ? 'selected' : '')
             .">".$option."</option>";
         }
     }

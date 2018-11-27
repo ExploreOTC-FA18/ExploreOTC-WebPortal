@@ -24,11 +24,6 @@ html {
   vertical-align: middle;
 }
 
-.scroll {
-    flex: 1 1 auto;
-    overflow-y: scroll;
-}
-
 /* --- MAIN NAV BAR --- */
 
 .main-nav {
@@ -105,10 +100,24 @@ html {
 .main-content {
     float: left;
     /* width: 80%; */
-    padding: 40px 40px 0 40px;
     display: flex;
     flex-flow: column;
     /* height: 94%; */
+}
+
+.scroll {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
+
+.collapse {
+    background-color: rgb(246, 246, 246);
+    padding: 40px;
+}
+
+.scroll,
+.content-title-bar {
+    padding: 40px 40px 0 40px;
 }
 
 .content-title-bar,

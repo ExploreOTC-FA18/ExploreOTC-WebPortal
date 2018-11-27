@@ -47,7 +47,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="qr_scans.php">
                                 <ion-item>
                                     <ion-icon class="icon" name="qr-scanner">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">QR Code</span>
@@ -113,7 +113,7 @@
                                 <ion-icon name="qr-scanner"></ion-icon>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="qr_scans.php">
                             <div class="card-footer">
                                 <p>QR Scans</p>
                                 <ion-icon name="arrow-dropright" class="card-footer-icon" size="large"></ion-icon>
