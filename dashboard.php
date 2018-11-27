@@ -31,47 +31,61 @@
                 <div class="menu-functions">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
-                                <ion-icon name="speedometer">&nbsp;&nbsp</ion-icon>
-                                Dashboard
+                            <a class="nav-link active" href="dashboard.php">
+                                <ion-item>
+                                    <ion-icon class="icon" name="speedometer">&nbsp;&nbsp</ion-icon>
+                                    <span class="icon-text">Dashboard</span>
+                                </ion-item>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="registration.php">
+                                <ion-item>
+                                    <ion-icon class="icon" name="person">&nbsp;&nbsp</ion-icon>
+                                    <span class="icon-text">Registration</span>
+                                </ion-item>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <ion-icon name="person">&nbsp;&nbsp</ion-icon>
-                                Registration
+                                <ion-item>
+                                    <ion-icon class="icon" name="qr-scanner">&nbsp;&nbsp</ion-icon>
+                                    <span class="icon-text">QR Code</span>
+                                </ion-item>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <ion-icon name="qr-scanner">&nbsp;&nbsp</ion-icon>
-                                QR Code
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <ion-icon name="clipboard">&nbsp;&nbsp</ion-icon>
-                                Survey
+                                <ion-item>
+                                    <ion-icon class="icon" name="clipboard">&nbsp;&nbsp</ion-icon>
+                                    <span class="icon-text">Survey</span>
+                                </ion-item>
                             </a>
                         </li>
                     </ul>
                 </div>
             </section>
-            <nav class="main-nav navbar navbar-expand-sm">
+            <nav class="main-nav navbar navbar-expand-sm" id="mainNav">
                 <div class="container">
                     <a class="navbar-brand" href="#"></a>
                     <div>
-                        <a href="index.php"><ion-icon name="log-out"></ion-icon> Log Out</a>
+                        <a href="index.php" class="float-right">
+                            <ion-item>
+                                <ion-icon class="icon" name="log-out"></ion-icon>
+                                <span class="icon-text">Log Out</span>
+                            </ion-item>
+                        </a>
                     </div>
                 </div>
             </nav>
             <section class="main-content">
-                <div class="content-title-bar">
-                    <h4 class="content-title">Dashboard</h4>
-                </div>
-                <div class="content-path">
-                    <i class="ion-speedometer">&nbsp;&nbsp</i>
-                    <p class="path">Home > Dashboard</p>
+                <div class="d-block">
+                    <div class="content-title-bar d-inline-block">
+                        <h4 class="content-title">Dashboard</h4>
+                    </div>
+                    <div class="content-path d-inline-block">
+                        <p class="path">Home > Dashboard</p>
+                    </div>
                 </div>
                 <div class="card-deck mt-4">
                     <div class="card card-blue">
@@ -83,7 +97,7 @@
                                 <ion-icon name="person"></ion-icon>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="registration.php">
                             <div class="card-footer">
                                 <p>Students Registered</p>
                                 <ion-icon name="arrow-dropright" class="card-footer-icon" size="large"></ion-icon>
