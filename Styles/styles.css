@@ -18,7 +18,8 @@ html {
 .main-nav {
     background-color: rgb(51, 68, 91);
     font-weight: 200;
-    font-size: 140%;
+    font-size: 120%;
+    height: 60px;
     padding: 3px 0;
     margin: 0;
 }
@@ -31,14 +32,14 @@ html {
     color: rgb(217, 217, 217);
 }
 
-.main-nav i {
+.main-nav ion-icon {
     color: rgb(217, 217, 217);
 }
 
 /* --- SIDE NAV BAR --- */
 
 .side-nav {
-    width: 15%;
+    width: 20%;
     height: 100%;
     background-color: rgb(51, 68, 91);
     color: rgb(217, 217, 217);
@@ -55,6 +56,7 @@ html {
     padding: 10px 0;
     background-color: rgb(41, 54, 70);
     text-align: center;
+    height: 60px
 }
 
 .nav-link:link,
@@ -80,7 +82,7 @@ html {
 
 .main-content {
     float: left;
-    width: 85%;
+    width: 80%;
     padding: 40px;
 }
 
@@ -118,7 +120,7 @@ html {
 
 .card-deck {
     margin: 0 auto;
-    width: 90%;
+    width: 70%;
 }
 
 .card-title,
@@ -155,8 +157,8 @@ html {
     float: right;
 }
 
-.card-body-icon i {
-    font-size: 800%;
+.card-body-icon ion-icon {
+    font-size: 500%;
     padding-right: 40px;
     line-height: 0;
 }
@@ -172,9 +174,10 @@ html {
     padding-top: 5px;
 }
 
-.card-footer i,
+.card-footer-icon,
 .card-footer p {
     display: inline-block;
+    vertical-align: middle;
 }
 
 .card a {

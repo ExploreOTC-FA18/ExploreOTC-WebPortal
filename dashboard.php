@@ -1,3 +1,13 @@
+<?php
+    include('Validation/validate_session.php');
+    include('DB/conn.php');
+
+    //Let's get some of the data that will be displayed on the screen.
+    $registrationCount = get_row_num('Registration');
+    $qrScansCount = get_row_num('QR_Scan_Results');
+    $surveysCount = get_row_num('SurveyResults');
+ ?>
+
 <!-- https://learn.getgrav.org/user/pages/05.admin-panel/09.faq/faq_2.png -->
 <!-- http://ionicons.com/ -->
 
@@ -8,9 +18,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
     <link rel="stylesheet" href="Styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
 </head>
@@ -19,31 +26,31 @@
         <div style="height: 100vh">
             <section class="side-nav">
                 <div class="title-button">
-                    ExploreOTC 
+                    ExploreOTC
                 </div>
                 <div class="menu-functions">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
-                                <i class="ion-speedometer">&nbsp;&nbsp</i>
+                                <ion-icon name="speedometer">&nbsp;&nbsp</ion-icon>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="registration.php">
-                                <i class="ion-clipboard">&nbsp;&nbsp</i>
+                            <a class="nav-link" href="#">
+                                <ion-icon name="person">&nbsp;&nbsp</ion-icon>
                                 Registration
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <i class="ion-filing">&nbsp;&nbsp</i>
-                                QR Code 
+                                <ion-icon name="qr-scanner">&nbsp;&nbsp</ion-icon>
+                                QR Code
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <i class="ion-person-stalker">&nbsp;&nbsp</i>
+                                <ion-icon name="clipboard">&nbsp;&nbsp</ion-icon>
                                 Survey
                             </a>
                         </li>
@@ -54,9 +61,7 @@
                 <div class="container">
                     <a class="navbar-brand" href="#"></a>
                     <div>
-                        <a href="#"><i class="ion-gear-b"></i></a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#"><i class="ion-log-out"></i></a>
+                        <a href="index.php"><ion-icon name="log-out"></ion-icon> Log Out</a>
                     </div>
                 </div>
             </nav>
@@ -72,51 +77,48 @@
                     <div class="card card-blue">
                         <div class="card-body">
                             <div class="card-body-body">
-                                <br><h4 class="card-title">xx</h4>
-                                <p class="card-text">Number of Students Registered</p>
+                                <br><h4 class="card-title"><?php echo $registrationCount; ?></h4>
                             </div>
                             <div class="card-body-icon">
-                                <i class="ion-filing"></i>
+                                <ion-icon name="person"></ion-icon>
                             </div>
                         </div>
                         <a href="#">
                             <div class="card-footer">
-                                <p></p>
-                                <i class="ion-arrow-right-b"></i>
+                                <p>Students Registered</p>
+                                <ion-icon name="arrow-dropright" class="card-footer-icon" size="large"></ion-icon>
                             </div>
                         </a>
                     </div>
                     <div class="card card-orange">
                         <div class="card-body">
                             <div class="card-body-body">
-                                <br><h4 class="card-title">xx</h4>
-                                <p class="card-text">Number of QR Scans</p>
+                                <br><h4 class="card-title"><?php echo $qrScansCount; ?></h4>
                             </div>
                             <div class="card-body-icon">
-                                <i class="ion-email"></i>
+                                <ion-icon name="qr-scanner"></ion-icon>
                             </div>
                         </div>
                         <a href="#">
                             <div class="card-footer">
-                                <p></p>
-                                <i class="ion-arrow-right-b"></i>
+                                <p>QR Scans</p>
+                                <ion-icon name="arrow-dropright" class="card-footer-icon" size="large"></ion-icon>
                             </div>
                         </a>
                     </div>
                     <div class="card card-red">
                         <div class="card-body">
                             <div class="card-body-body">
-								<br><h4 class="card-title">xx</h4>
-                                <p class="card-text">Number of Surveys Completed</p>
+								<br><h4 class="card-title"><?php echo $surveysCount; ?></h4>
                             </div>
                             <div class="card-body-icon">
-                                <i class="ion-ios-calendar"></i>
+                                <ion-icon name="clipboard"></ion-icon>
                             </div>
                         </div>
                         <a href="#">
                             <div class="card-footer">
-                                <p></p>
-                                <i class="ion-arrow-right-b"></i>
+                                <p>Surveys Completed</p>
+                                <ion-icon name="arrow-dropright" class="card-footer-icon" size="large"></ion-icon>
                             </div>
                         </a>
                     </div>
@@ -128,5 +130,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@4.4.7/dist/ionicons.js"></script>
 </body>
 </html>
