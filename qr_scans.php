@@ -34,7 +34,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="registration.php">
+                            <a class="nav-link" href="registration.php">
                                 <ion-item>
                                     <ion-icon class="icon" name="person">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">Registration</span>
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="qr_scans.php">
+                            <a class="nav-link active" href="#">
                                 <ion-item>
                                     <ion-icon class="icon" name="qr-scanner">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">QR Code</span>
@@ -82,48 +82,55 @@
 
             <section class="main-content" id="mainContent">
                 <div class="collapse" id="filter">
-					<form action="registration.php" method="get">
+					<form action="qr_scans.php" method="get">
                         <div class="d-block">
     						<div class="form-group d-inline-block">
-								<label for="schoolDrop">School</label>
-								<select class="form-control" id="schoolDrop" name="School">
+								<label for="programDrop">Program</label>
+								<select class="form-control" id="programDrop" name="Program">
 									<option value="">Any</option>
                                     <?php
-                                        $options = ['Ash Grove', 'Bolivar', 'Central', 'Clever', 'Dayspring Christian',
-                                                    'Everton', 'Fair Grove', 'Fordland', 'Glendale', 'Gloria Deo',
-                                                    'Hillcrest', 'Kickapoo', 'Logan-Rogersville', 'Marion C. Early',
-                                                    'Marshfield', 'Nixa', 'Parkview', 'Pleasant Hope', 'Reeds Spring',
-                                                    'Republic', 'Seymour', 'Sparta', 'Strafford', 'Study Alternative Center',
-                                                    'Walnut Grove', 'Willard'];
-                                        create_drop_down($options, 'School');
+                                        $options = [
+                                            "ABR" => "Auto Collision Repair", "AGR" => "Agriculture",
+                                            "AUM" => "Automotive Technology", "AVI" => "Aviation",
+                                            "CIS" => "Computer Information Science", "CST" => "Construction Technology",
+                                            "CUL" => "Culinary Arts", "DDT" => "Drafting and Design Technology",
+                                            "DSL" => "Diesel Technology", "ECD" => "Early Childhood Development",
+                                            "EDS" => "Electrical Trades Technology", "ELC" => "Electricity",
+                                            "EMP" => "Electronic Media Production", "FST" => "Fire Science Technology",
+                                            "GDT" => "Graphics Design Technology", "HRA" => "Heating, Refrigeration, and Air Conditioning",
+                                            "HSC" => "Health Sciences", "HSM" => "Hospitatlity Management",
+                                            "IST" => "Industrial Systems Technology", "MFG" => "Manufacturing Technology",
+                                            "MTT" => "Machine Tool Technology", "NET" => "Networking Technology",
+                                            "WLD" => "Welding Technology"
+                                        ];
+                                        create_drop_down($options, 'Program', True);
                                      ?>
 								</select>
                             </div>
-                            <div class="form-group d-inline-block">
-								<label for="ratingDrop">Rating</label>
-								<select class="form-control" id="ratingDrop" name="Perception">
-                                    <option value="">Any</option>
-                                    <?php create_drop_down([0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5], 'Perception'); ?>
-								</select>
-    						</div>
                         </div>
                         <div class="d-block">
-    						<div class="form-group d-inline-block">
-    							<label for="firstName">First Name:</label>
-    							<input type="firstName" class="form-control" id="firstName" name="FirstName" value="<?php get_input_data('FirstName'); ?>">
-    						</div>
-    						<div class="form-group d-inline-block">
-    							<label for="lastName">Last Name:</label>
-    							<input type="lastName" class="form-control" id="lastName" name="LastName" value="<?php get_input_data('LastName'); ?>">
-    						</div>
-    						<div class="form-group d-inline-block">
-    							<label for="email">Email address:</label>
-    							<input type="email" class="form-control" id="email" name="UserEmail" value="<?php get_input_data('UserEmail'); ?>">
-    						</div>
-    						<div class="form-group d-inline-block">
-    							<label for="phoneNumber">Phone Number:</label>
-    							<input type="phoneNumber" class="form-control" id="phoneNumber" name="PhoneNo" value="<?php get_input_data('PhoneNo'); ?>">
-    						</div>
+                            <div class="form-group d-inline-block ml-4">
+                                <input type="checkbox" class="form-check-input" id="Call" name="Call" <?php get_input_data('Call'); ?>>
+                                <label for="Call" class="form-check-label">Call</label>
+                            </div>
+                            <div class="form-group d-inline-block ml-5">
+                                <input type="checkbox" class="form-check-input" id="Email" name="Email" <?php get_input_data('Email'); ?>>
+                                <label for="Email" class="form-check-label">Email</label>
+                            </div>
+                            <div class="form-group d-inline-block ml-5">
+                                <input type="checkbox" class="form-check-input" id="Shadow" name="Shadow" <?php get_input_data('Shadow'); ?>>
+                                <label for="Shadow" class="form-check-label">Shadow</label>
+                            </div>
+                        </div>
+                        <div class="d-block">
+                            <div class="form-group d-inline-block ml-4">
+                                <input type="checkbox" class="form-check-input" id="Tour" name="Tour" <?php get_input_data('Tour'); ?>>
+                                <label for="Tour" class="form-check-label">Tour</label>
+                            </div>
+                            <div class="form-group d-inline-block ml-5">
+                                <input type="checkbox" class="form-check-input" id="Visit" name="Visit" <?php get_input_data('Visit'); ?>>
+                                <label for="Visit" class="form-check-label">Visit</label>
+                            </div>
                         </div>
 						<button type="submit" class="btn btn-success">Filter</button>
                     </form>
@@ -140,8 +147,9 @@
 
                 <div class="scroll mt-4">
                     <?php
-                        create_table("SELECT FirstName, LastName, UserEmail, PhoneNo, School, Perception FROM Registration",
-                                    ["FirstName", "LastName", "UserEmail", "PhoneNo", "School", "Perception"]);
+                        create_table("SELECT QR_Scan_Results.UserEmail, PhoneNo, Program, Call, Email, Shadow, Tour, Visit "
+                                    ."FROM QR_Scan_Results JOIN Registration ON Registration.UserEmail=QR_Scan_Results.UserEmail",
+                                    ['UserEmail', 'PhoneNo', 'Program', 'Call', 'Email', 'Shadow', 'Tour', 'Visit']);
                     ?>
                 </div>
             </section>

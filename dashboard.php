@@ -24,7 +24,7 @@
 <body>
     <div style="width: 100vw">
         <div style="height: 100vh">
-            <section class="side-nav">
+            <section class="side-nav" id="sideNav">
                 <div class="title-button">
                     ExploreOTC
                 </div>
@@ -47,7 +47,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="qr_scans.php">
                                 <ion-item>
                                     <ion-icon class="icon" name="qr-scanner">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">QR Code</span>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </nav>
-            <section class="main-content">
+            <section class="main-content" id="mainContent">
                 <div class="d-block">
                     <div class="content-title-bar d-inline-block">
                         <h4 class="content-title">Dashboard</h4>
@@ -113,7 +113,7 @@
                                 <ion-icon name="qr-scanner"></ion-icon>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="qr_scans.php">
                             <div class="card-footer">
                                 <p>QR Scans</p>
                                 <ion-icon name="arrow-dropright" class="card-footer-icon" size="large"></ion-icon>
@@ -145,5 +145,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/ionicons@4.4.7/dist/ionicons.js"></script>
+    <script src="JS/MainContentResize.js"></script>
 </body>
 </html>
