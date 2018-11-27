@@ -45,4 +45,13 @@
         return (isset($_GET[$key]) && !empty($_GET[$key]));
     }
 
+    function create_drop_down($options, $getKey)
+    {
+        foreach($options as $option) {
+            echo "<option "
+            .(isset($_GET[$getKey]) && !empty($_GET[$getKey]) && $_GET[$getKey] == (string)$option ? 'selected' : '')
+            .">".$option."</option>";
+        }
+    }
+
  ?>

@@ -19,7 +19,7 @@
 <body>
     <div style="width: 100vw">
         <div style="height: 100vh" id="height">
-            <section class="side-nav">
+            <section class="side-nav" id="sideNav">
                 <div class="title-button">
                     ExploreOTC
                 </div>
@@ -102,12 +102,7 @@
                                                     'Marshfield', 'Nixa', 'Parkview', 'Pleasant Hope', 'Reeds Spring',
                                                     'Republic', 'Seymour', 'Sparta', 'Strafford', 'Study Alternative Center',
                                                     'Walnut Grove', 'Willard'];
-
-                                        foreach($options as $key => $option) {
-                                            echo "<option "
-                                            .(isset($_GET['School']) && !empty($_GET['School']) && $_GET['School'] == $option ? 'selected' : '')
-                                            .">".$option."</option>";
-                                        }
+                                        create_drop_down($options, 'School');
                                      ?>
 								</select>
                             </div>
@@ -115,14 +110,7 @@
 								<label for="ratingDrop">Rating</label>
 								<select class="form-control" id="ratingDrop" name="Perception">
                                     <option value="">Any</option>
-                                    <?php
-                                        $options = [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5];
-                                        foreach($options as $option) {
-                                            echo "<option "
-                                            .(isset($_GET['Perception']) && !empty($_GET['Perception']) && $_GET['Perception'] == (string)$option ? 'selected' : '')
-                                            .">".$option."</option>";
-                                        }
-                                    ?>
+                                    <?php create_drop_down([0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5], 'Perception'); ?>
 								</select>
     						</div>
                         </div>
