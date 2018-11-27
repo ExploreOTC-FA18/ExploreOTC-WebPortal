@@ -13,6 +13,22 @@ html {
     text-rendering: optimizeLegibility;
 }
 
+.icon {
+ display: inline-block;
+ font-size: 35px;
+ vertical-align: middle;
+}
+
+.icon-text{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.scroll {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
+
 /* --- MAIN NAV BAR --- */
 
 .main-nav {
@@ -26,6 +42,12 @@ html {
 
 .main-nav .container {
     max-width: 1400px;
+}
+
+.filter-btn {
+    background-color: rgb(51, 68, 91);
+    border: 0;
+    color: white;
 }
 
 .main-nav a {
@@ -56,7 +78,7 @@ html {
     padding: 10px 0;
     background-color: rgb(41, 54, 70);
     text-align: center;
-    height: 60px
+    height: 60px;
 }
 
 .nav-link:link,
@@ -83,7 +105,10 @@ html {
 .main-content {
     float: left;
     width: 80%;
-    padding: 40px;
+    padding: 40px 40px 0 40px;
+    display: flex;
+    flex-flow: column;
+    /* height: 94%; */
 }
 
 .content-title-bar,
