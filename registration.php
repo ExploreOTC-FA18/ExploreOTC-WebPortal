@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="survey.php">
                                 <ion-item>
                                     <ion-icon class="icon" name="clipboard">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">Survey</span>
