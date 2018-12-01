@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="qr_scans.php">
+                            <a class="nav-link" href="qr_scans.php">
                                 <ion-item>
                                     <ion-icon class="icon" name="qr-scanner">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">QR Code</span>
@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link active" href="#">
                                 <ion-item>
                                     <ion-icon class="icon" name="clipboard">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">Survey</span>
@@ -109,105 +109,87 @@
                             </div>
                         </div>
                         <div class="d-block">
-                            <div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="Military" name="Military" <?php get_input_data('Military'); ?>>
-                                <label for="Military" class="form-check-label">Military</label>
-                            </div>
-                            <div class="form-group d-inline-block ml-5">
-                                <input type="checkbox" class="form-check-input" id="AssociatesDegree" name="AssociatesDegree" <?php get_input_data('AssociatesDegree'); ?>>
-                                <label for="AssociatesDegree" class="form-check-label">Associates Degree</label>
-                            </div>
-                            <div class="form-group d-inline-block ml-5">
-                                <input type="checkbox" class="form-check-input" id="BachelorsDegree" name="BachelorsDegree" <?php get_input_data('BachelorsDegree'); ?>>
-                                <label for="BachelorsDegree" class="form-check-label">Bachelors Degree</label>
-                            </div>
-                            <div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="NoPlans" name="NoPlans" <?php get_input_data('NoPlans'); ?>>
-                                <label for="NoPlans" class="form-check-label">Not Planning on Attending College</label>
-                            </div>
-                            <div class="form-group d-inline-block ml-5">
-                                <input type="checkbox" class="form-check-input" id="GoToWork" name="GoToWork" <?php get_input_data('GoToWork'); ?>>
-                                <label for="GoToWork" class="form-check-label">Go to Work</label>
-                            </div>
-                            <div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="DontKnow" name="DontKnow" <?php get_input_data('DontKnow'); ?>>
-                                <label for="DontKnow" class="form-check-label">Don't Know</label>
-                            </div>
+							<div class="d-block">
+								<h5 class="d-block">After High School Plans:</h5>
+								<div class="form-group d-inline-block ml-5">
+									<input type="checkbox" class="form-check-input" id="Military" name="Military" <?php get_input_data('Military'); ?>>
+									<label for="Military" class="form-check-label">Military</label>
+								</div>
+								<div class="form-group d-inline-block ml-5">
+									<input type="checkbox" class="form-check-input" id="AssociatesDegree" name="AssociatesDegree" <?php get_input_data('AssociatesDegree'); ?>>
+									<label for="AssociatesDegree" class="form-check-label">Associates Degree</label>
+								</div>
+								<div class="form-group d-inline-block ml-5">
+									<input type="checkbox" class="form-check-input" id="BachelorsDegree" name="BachelorsDegree" <?php get_input_data('BachelorsDegree'); ?>>
+									<label for="BachelorsDegree" class="form-check-label">Bachelors Degree</label>
+								</div>
+							</div>
+							<div class="d-block">
+								<div class="form-group d-inline-block ml-5">
+									<input type="checkbox" class="form-check-input" id="NoPlans" name="NoPlans" <?php get_input_data('NoPlans'); ?>>
+									<label for="NoPlans" class="form-check-label">Not Planning on Attending College</label>
+								</div>
+								<div class="form-group d-inline-block ml-5">
+									<input type="checkbox" class="form-check-input" id="GoToWork" name="GoToWork" <?php get_input_data('GoToWork'); ?>>
+									<label for="GoToWork" class="form-check-label">Go to Work</label>
+								</div>
+								<div class="form-group d-inline-block ml-5">
+									<input type="checkbox" class="form-check-input" id="DontKnow" name="DontKnow" <?php get_input_data('DontKnow'); ?>>
+									<label for="DontKnow" class="form-check-label">Don't Know</label>
+								</div>
+							</div>
                         </div>
 						<div class="d-block">
-							<div class="form-group d-inline-block ml-5">
+    						<div class="form-group d-inline-block">
 								<label for="aPlus">A+ Qualified</label>
+								<select class="form-control" id="aPlus" name="APlus">
+									<option value="">Any</option>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+								</select>
 							</div>
 							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="aPlusYes" name="aPlusYes" <?php get_input_data('Yes'); ?>>
-                                <label for="aPlusYes" class="form-check-label">Yes</label>
-							</div>
-							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="aPlusNo" name="aPlusNo" <?php get_input_data('No'); ?>>
-                                <label for="aPlusNo" class="form-check-label">No</label>
-							</div>
-						</div>
-						<div class="d-block">
-							<div class="form-group d-inline-block ml-5">
 								<label for="increasedInterest">Event Increased Interest</label>
+								<select class="form-control" id="increasedInterest" name="increasedInterest">
+									<option value="">Any</option>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+								</select>
 							</div>
 							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="increasedInterestYes" name="increasedInterestYes" <?php get_input_data('Yes'); ?>>
-                                <label for="increasedInterestYes" class="form-check-label">Yes</label>
-							</div>
-							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="increasedInterestNo" name="increasedInterestNo" <?php get_input_data('No'); ?>>
-                                <label for="increasedInterestNo" class="form-check-label">No</label>
-							</div>
-						</div>
-						<div class="d-block">
-							<div class="form-group d-inline-block ml-5">
 								<label for="fullDay">Attend Full Day</label>
-							</div>
-							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="fullDayYes" name="fullDayYes" <?php get_input_data('Yes'); ?>>
-                                <label for="fullDayYes" class="form-check-label">Yes</label>
-							</div>
-							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="fullDayNo" name="fullDayNo" <?php get_input_data('No'); ?>>
-                                <label for="fullDayNo" class="form-check-label">No</label>
+								<select class="form-control" id="fullDay" name="fullDay">
+									<option value="">Any</option>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+								</select>
 							</div>
 						</div>
 						<div class="d-block">
-							<div class="form-group d-inline-block ml-5">
+							<div class="form-group d-inline-block">
 								<label for="halfDay">Attend Half Day</label>
+								<select class="form-control" id="halfDay" name="halfDay">
+									<option value="">Any</option>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+								</select>
 							</div>
 							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="halfDayYes" name="halfDayYes" <?php get_input_data('Yes'); ?>>
-                                <label for="halfDayYes" class="form-check-label">Yes</label>
+								<label for="afterHS">Attend After High School</label>
+								<select class="form-control" id="afterHS" name="afterHS">
+									<option value="">Any</option>
+									<option value="1">Yes</option>
+									<option value="0">No</option>
+								</select>
 							</div>
-							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="halfDayNo" name="halfDayNo" <?php get_input_data('No'); ?>>
-                                <label for="halfDayNo" class="form-check-label">No</label>
-							</div>
+                            <div class="form-group d-inline-block ml-4">
+								<label for="ratingDrop">Rating</label>
+								<select class="form-control" id="ratingDrop" name="Perception">
+                                    <option value="">Any</option>
+                                    <?php create_drop_down([0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5], 'Perception'); ?>
+								</select>
+    						</div>
 						</div>
-						<div class="d-block">
-							<div class="form-group d-inline-block ml-5">
-								<label for="afterHighSchool">Attend After High School</label>
-							</div>
-							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="afterHighSchoolYes" name="afterHighSchoolYes" <?php get_input_data('Yes'); ?>>
-                                <label for="afterHighSchoolYes" class="form-check-label">Yes</label>
-							</div>
-							<div class="form-group d-inline-block ml-4">
-                                <input type="checkbox" class="form-check-input" id="afterHighSchoolNo" name="afterHighSchoolNo" <?php get_input_data('No'); ?>>
-                                <label for="afterHighSchoolNo" class="form-check-label">No</label>
-							</div>
-						</div>
-						<div class="form-group d-inline-block">
-								<label for="ratingDrop">Event Rating</label>
-								<select class="form-control" id="ratingDrop" name="Rating">
-									<option value="">1</option>
-									<option value="">2</option>
-									<option value="">3</option>
-									<option value="">4</option>
-									<option value="">5</option>
-						<button type="submit" class="btn btn-success">Filter</button>
                     </form>
 				</div>
 
