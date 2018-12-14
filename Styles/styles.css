@@ -116,7 +116,8 @@ html {
 }
 
 .scroll,
-.content-title-bar {
+.content-title-bar,
+.content-path {
     padding: 40px 40px 0 40px;
 }
 

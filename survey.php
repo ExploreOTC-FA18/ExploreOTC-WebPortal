@@ -63,12 +63,15 @@
 
             <nav class="main-nav navbar navbar-expand-sm" id="mainNav">
                 <div class="container">
-                    <button class="filter-btn" data-toggle="collapse" data-target="#filter">
-                        <ion-item>
-                            <ion-icon class="icon" name="funnel"></ion-icon>
-                            <span class="ion-text">&nbsp;&nbspFilter</span>
-                        </ion-item>
-                    </button>
+                    <div>
+                        <button class="filter-btn btn btn-outline-light" data-toggle="collapse" data-target="#filter">
+                            <ion-item>
+                                <ion-icon class="icon" name="funnel"></ion-icon>
+                                <span class="ion-text">&nbsp;&nbspFilter</span>
+                            </ion-item>
+                        </button>
+                        <button class="ml-3 btn btn-outline-light" onclick="copyToClipboard()">Copy Emails</button>
+                    </div>
                     <div>
                         <a href="index.php">
                             <ion-item>
@@ -85,8 +88,8 @@
 					<form action="survey.php" method="get">
                         <div class="d-block">
     						<div class="form-group d-inline-block">
-								<label for="programDrop">Program</label>
-								<select class="form-control" id="programDrop" name="Program">
+								<label for="programDrop">Program Interest</label>
+								<select class="form-control" id="programDrop" name="ProgramInterest">
 									<option value="">Any</option>
                                     <?php
                                         $options = [
@@ -103,7 +106,7 @@
                                             "MTT" => "Machine Tool Technology", "NET" => "Networking Technology",
                                             "WLD" => "Welding Technology"
                                         ];
-                                        create_drop_down($options, 'Program', True);
+                                        create_drop_down($options, 'ProgramInterest');
                                      ?>
 								</select>
                             </div>
@@ -112,29 +115,29 @@
 							<div class="d-block">
 								<h5 class="d-block">After High School Plans:</h5>
 								<div class="form-group d-inline-block ml-5">
-									<input type="checkbox" class="form-check-input" id="Military" name="Military" <?php get_input_data('Military'); ?>>
+									<input type="checkbox" class="form-check-input" id="Military" name="EduMilitary" <?php get_input_data('EduMilitary'); ?>>
 									<label for="Military" class="form-check-label">Military</label>
 								</div>
 								<div class="form-group d-inline-block ml-5">
-									<input type="checkbox" class="form-check-input" id="AssociatesDegree" name="AssociatesDegree" <?php get_input_data('AssociatesDegree'); ?>>
+									<input type="checkbox" class="form-check-input" id="AssociatesDegree" name="EduAssociates" <?php get_input_data('EduAssociates'); ?>>
 									<label for="AssociatesDegree" class="form-check-label">Associates Degree</label>
 								</div>
 								<div class="form-group d-inline-block ml-5">
-									<input type="checkbox" class="form-check-input" id="BachelorsDegree" name="BachelorsDegree" <?php get_input_data('BachelorsDegree'); ?>>
+									<input type="checkbox" class="form-check-input" id="BachelorsDegree" name="EduBachelors" <?php get_input_data('EduBachelors'); ?>>
 									<label for="BachelorsDegree" class="form-check-label">Bachelors Degree</label>
 								</div>
 							</div>
 							<div class="d-block">
 								<div class="form-group d-inline-block ml-5">
-									<input type="checkbox" class="form-check-input" id="NoPlans" name="NoPlans" <?php get_input_data('NoPlans'); ?>>
+									<input type="checkbox" class="form-check-input" id="NoPlans" name="EduOther" <?php get_input_data('EduOther'); ?>>
 									<label for="NoPlans" class="form-check-label">Not Planning on Attending College</label>
 								</div>
 								<div class="form-group d-inline-block ml-5">
-									<input type="checkbox" class="form-check-input" id="GoToWork" name="GoToWork" <?php get_input_data('GoToWork'); ?>>
+									<input type="checkbox" class="form-check-input" id="GoToWork" name="EduWork" <?php get_input_data('EduWork'); ?>>
 									<label for="GoToWork" class="form-check-label">Go to Work</label>
 								</div>
 								<div class="form-group d-inline-block ml-5">
-									<input type="checkbox" class="form-check-input" id="DontKnow" name="DontKnow" <?php get_input_data('DontKnow'); ?>>
+									<input type="checkbox" class="form-check-input" id="DontKnow" name="EduDontKnow" <?php get_input_data('EduDontKnow'); ?>>
 									<label for="DontKnow" class="form-check-label">Don't Know</label>
 								</div>
 							</div>
@@ -143,53 +146,44 @@
     						<div class="form-group d-inline-block">
 								<label for="aPlus">A+ Qualified</label>
 								<select class="form-control" id="aPlus" name="APlus">
-									<option value="">Any</option>
-									<option value="1">Yes</option>
-									<option value="0">No</option>
+									<?php create_yes_no('APlus'); ?>
 								</select>
 							</div>
 							<div class="form-group d-inline-block ml-4">
 								<label for="increasedInterest">Event Increased Interest</label>
-								<select class="form-control" id="increasedInterest" name="increasedInterest">
-									<option value="">Any</option>
-									<option value="1">Yes</option>
-									<option value="0">No</option>
+								<select class="form-control" id="increasedInterest" name="OTCInterest">
+									<?php create_yes_no('OTCInterest'); ?>
 								</select>
 							</div>
 							<div class="form-group d-inline-block ml-4">
 								<label for="fullDay">Attend Full Day</label>
-								<select class="form-control" id="fullDay" name="fullDay">
-									<option value="">Any</option>
-									<option value="1">Yes</option>
-									<option value="0">No</option>
+								<select class="form-control" id="fullDay" name="HSFullDay">
+									<?php create_yes_no('HSFullDay'); ?>
 								</select>
 							</div>
 						</div>
 						<div class="d-block">
 							<div class="form-group d-inline-block">
 								<label for="halfDay">Attend Half Day</label>
-								<select class="form-control" id="halfDay" name="halfDay">
-									<option value="">Any</option>
-									<option value="1">Yes</option>
-									<option value="0">No</option>
+								<select class="form-control" id="halfDay" name="HSHalfDay">
+									<?php create_yes_no('HSHalfDay'); ?>
 								</select>
 							</div>
 							<div class="form-group d-inline-block ml-4">
 								<label for="afterHS">Attend After High School</label>
-								<select class="form-control" id="afterHS" name="afterHS">
-									<option value="">Any</option>
-									<option value="1">Yes</option>
-									<option value="0">No</option>
+								<select class="form-control" id="afterHS" name="AfterHS">
+									<?php create_yes_no('AfterHS'); ?>
 								</select>
 							</div>
                             <div class="form-group d-inline-block ml-4">
 								<label for="ratingDrop">Rating</label>
-								<select class="form-control" id="ratingDrop" name="Perception">
+								<select class="form-control" id="ratingDrop" name="EventRating">
                                     <option value="">Any</option>
-                                    <?php create_drop_down([0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5], 'Perception'); ?>
+                                    <?php create_drop_down([0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5], 'EventRating'); ?>
 								</select>
     						</div>
 						</div>
+                        <button type="submit" class="btn btn-success">Filter</button>
                     </form>
 				</div>
 
@@ -204,12 +198,15 @@
 
                 <div class="scroll mt-4">
                     <?php
-                        create_table("SELECT QR_Scan_Results.UserEmail, PhoneNo, Program, Call, Email, Shadow, Tour, Visit "
-                                    ."FROM QR_Scan_Results JOIN Registration ON Registration.UserEmail=QR_Scan_Results.UserEmail",
-                                    ['UserEmail', 'PhoneNo', 'Program', 'Call', 'Email', 'Shadow', 'Tour', 'Visit']);
+                        $rows = create_table("SELECT UserId, EduAssociates, EduBachelors, EduMilitary, EduOther, EduWork, EduDontKnow, HSFullDay, HSHalfDay, AfterHS, OTCInterest, APlus, ProgramInterest, OTCComments, EventRating "
+                                    ."FROM SurveyResults",
+                                    ['UserId', 'EduAssociates', 'EduBachelors', 'EduMilitary', 'EduOther',
+                                    'EduWork', 'EduDontKnow', 'HSFullDay', 'HSHalfDay', 'AfterHS', 'OTCInterest',
+                                    'APlus', 'ProgramInterest', 'OTCComments', 'EventRating',]);
                     ?>
                 </div>
             </section>
+            <?php create_csv_tag($rows, 'UserId'); ?>
         </div>
     </div>
 
@@ -218,5 +215,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/ionicons@4.4.7/dist/ionicons.js"></script>
     <script src="JS/MainContentResize.js"></script>
+    <script src="JS/CSVDisplay.js"></script>
 </body>
 </html>

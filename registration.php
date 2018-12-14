@@ -63,12 +63,15 @@
 
             <nav class="main-nav navbar navbar-expand-sm" id="mainNav">
                 <div class="container">
-                    <button class="filter-btn" data-toggle="collapse" data-target="#filter">
-                        <ion-item>
-                            <ion-icon class="icon" name="funnel"></ion-icon>
-                            <span class="ion-text">&nbsp;&nbspFilter</span>
-                        </ion-item>
-                    </button>
+                    <div>
+                        <button class="filter-btn btn btn-outline-light" data-toggle="collapse" data-target="#filter">
+                            <ion-item>
+                                <ion-icon class="icon" name="funnel"></ion-icon>
+                                <span class="ion-text">&nbsp;&nbspFilter</span>
+                            </ion-item>
+                        </button>
+                        <button class="ml-3 btn btn-outline-light" onclick="copyToClipboard()">Copy Emails</button>
+                    </div>
                     <div>
                         <a href="index.php">
                             <ion-item>
@@ -140,11 +143,12 @@
 
                 <div class="scroll mt-4">
                     <?php
-                        create_table("SELECT FirstName, LastName, UserEmail, PhoneNo, School, Perception FROM Registration",
+                        $rows = create_table("SELECT FirstName, LastName, UserEmail, PhoneNo, School, Perception FROM Registration",
                                     ["FirstName", "LastName", "UserEmail", "PhoneNo", "School", "Perception"]);
                     ?>
                 </div>
             </section>
+            <?php create_csv_tag($rows, 'UserEmail'); ?>
         </div>
     </div>
 
@@ -153,5 +157,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/ionicons@4.4.7/dist/ionicons.js"></script>
     <script src="JS/MainContentResize.js"></script>
+    <script src="JS/CSVDisplay.js"></script>
 </body>
 </html>
