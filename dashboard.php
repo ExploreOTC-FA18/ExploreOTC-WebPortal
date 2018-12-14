@@ -129,7 +129,7 @@
                                 <ion-icon name="clipboard"></ion-icon>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="survey.php">
                             <div class="card-footer">
                                 <p>Surveys Completed</p>
                                 <ion-icon name="arrow-dropright" class="card-footer-icon" size="large"></ion-icon>

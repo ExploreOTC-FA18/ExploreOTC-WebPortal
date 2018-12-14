@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link active" href="qr_scans.php">
                                 <ion-item>
                                     <ion-icon class="icon" name="qr-scanner">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">QR Code</span>
@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="survey.php">
                                 <ion-item>
                                     <ion-icon class="icon" name="clipboard">&nbsp;&nbsp</ion-icon>
                                     <span class="icon-text">Survey</span>
@@ -63,12 +63,15 @@
 
             <nav class="main-nav navbar navbar-expand-sm" id="mainNav">
                 <div class="container">
-                    <button class="filter-btn" data-toggle="collapse" data-target="#filter">
-                        <ion-item>
-                            <ion-icon class="icon" name="funnel"></ion-icon>
-                            <span class="ion-text">&nbsp;&nbspFilter</span>
-                        </ion-item>
-                    </button>
+                    <div>
+                        <button class="filter-btn btn btn-outline-light" data-toggle="collapse" data-target="#filter">
+                            <ion-item>
+                                <ion-icon class="icon" name="funnel"></ion-icon>
+                                <span class="ion-text">&nbsp;&nbspFilter</span>
+                            </ion-item>
+                        </button>
+                        <button class="ml-3 btn btn-outline-light" onclick="copyToClipboard()">Copy Emails</button>
+                    </div>
                     <div>
                         <a href="index.php">
                             <ion-item>
@@ -147,12 +150,13 @@
 
                 <div class="scroll mt-4">
                     <?php
-                        create_table("SELECT QR_Scan_Results.UserEmail, PhoneNo, Program, Call, Email, Shadow, Tour, Visit "
+                        $rows = create_table("SELECT QR_Scan_Results.UserEmail, PhoneNo, Program, Call, Email, Shadow, Tour, Visit "
                                     ."FROM QR_Scan_Results JOIN Registration ON Registration.UserEmail=QR_Scan_Results.UserEmail",
                                     ['UserEmail', 'PhoneNo', 'Program', 'Call', 'Email', 'Shadow', 'Tour', 'Visit']);
                     ?>
                 </div>
             </section>
+            <?php create_csv_tag($rows, 'UserEmail'); ?>
         </div>
     </div>
 
@@ -161,5 +165,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/ionicons@4.4.7/dist/ionicons.js"></script>
     <script src="JS/MainContentResize.js"></script>
+    <script src="JS/CSVDisplay.js"></script>
 </body>
 </html>

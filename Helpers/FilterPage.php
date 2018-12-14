@@ -31,6 +31,8 @@
         echo "</tbody>";
 
         echo "</table>";
+
+        return $rows;
     }
 
     function get_input_data($field_name) {
@@ -51,11 +53,37 @@
             $getKeyCheck = (string)$option;
             if ($useKey)
                 $getKeyCheck = $key;
-                
+
             echo "<option ".($useKey ? 'value="'.$key.'" ' : '')
             .(isset($_GET[$getKey]) && !empty($_GET[$getKey]) && $_GET[$getKey] == $getKeyCheck ? 'selected' : '')
             .">".$option."</option>";
         }
+    }
+
+    function create_yes_no($getKey)
+    {
+        echo "<option value=''".((isset($_GET[$getKey]) && !empty($_GET[$getKey]) && $_GET[$getKey] == '') ? ' selected' : '').">Any</option>";
+        echo "<option value='1'".((isset($_GET[$getKey]) && !empty($_GET[$getKey]) && $_GET[$getKey] == '1') ? ' selected' : '').">Yes</option>";
+        echo "<option value='0'".(($_GET[$getKey] == '0') ? ' selected' : '').">No</option>";
+    }
+
+    function create_csv_tag($rows, $columnName)
+    {
+        $emails = '';
+        if (count($rows) !== 0){
+            foreach($rows as $row) {
+                //Check to see if the email will validate
+                $row[$columnName] = str_replace(' ', '', $row[$columnName]);
+                if (filter_var($row[$columnName], FILTER_VALIDATE_EMAIL)) {
+                    //If it does validate we will add it to the string
+                    $emails .= $row[$columnName].', ';
+                }
+            }
+            //Now remove the last comma from the string
+            $emails = substr($emails, 0, -2);
+        }
+
+        echo '<div id="csv-emails" hidden>'.$emails.'</div>';
     }
 
  ?>
